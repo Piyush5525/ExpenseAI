@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ExpenseAI Reports</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a class="brand" href="index.html">ExpenseAI</a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="reports.html">Reports</a>
+        <a href="about.html">About</a>
+        <button id="themeToggle" aria-label="Toggle theme" style="margin-left:12px;">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h3>Spending by category</h3>
+      <canvas id="pieChart" width="400" height="200"></canvas>
+    </section>
+
+    <section class="card">
+      <h3>Monthly spending</h3>
+      <canvas id="barChart" width="600" height="200"></canvas>
+    </section>
+
+    <section class="card">
+      <h3>AI saving tips</h3>
+      <div id="tips"></div>
+    </section>
+  </main>
+
+  <footer class="footer">Built with 💚 using HTML, CSS & JavaScript.</footer>
+  <script src="theme.js"></script>
+  <script src="reports.js"></script>
+</body>
+</html>

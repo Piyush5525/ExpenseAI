@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ExpenseAI Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <a class="brand" href="index.html">ExpenseAI</a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="reports.html">Reports</a>
+        <a href="about.html">About</a>
+        <button id="themeToggle" aria-label="Toggle theme" style="margin-left:12px;">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="alert" style="display:none" class="alert"></div>
+
+    <section class="card">
+      <div class="grid-3">
+        <div>
+          <div class="stat-title">Total expenses</div>
+          <div id="total" class="stat-value"><span id="currencySymbol">₹</span>0.00</div>
+        </div>
+        <div>
+          <div class="stat-title">Monthly budget</div>
+          <div id="budget" class="stat-value"><span id="currencySymbol">₹</span>0.00</div>
+        </div>
+        <div>
+          <div class="stat-title">Remaining</div>
+          <div id="remaining" class="stat-value"><span id="currencySymbol">₹</span>0.00</div>
+        </div>
+      </div>
+      <!-- Streak indicator -->
+      <div style="margin-top:12px">
+        <span id="streak" class="tag">🔥 You're on a 0-day saving streak</span>
+      </div>
+    </section>
+
+    <!-- Budget settings: set monthly budget and currency -->
+    <section class="card" id="budget-settings">
+      <h3>Budget settings</h3>
+      <div class="form-row" style="align-items:center">
+        <label style="display:flex;flex-direction:column">
+          Monthly budget
+          <input id="budgetInput" class="input" type="number" placeholder="e.g. 5000">
+        </label>
+        <label style="display:flex;flex-direction:column">
+          Currency
+          <select id="currencySelect" class="input">
+            <option value="INR">₹ - INR</option>
+            <option value="USD">$ - USD</option>
+          </select>
+        </label>
+        <div class="form-actions">
+          <button id="saveSettingsBtn" class="btn">Save settings</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Add expense</h3>
+      <div class="form-row">
+        <input id="title" class="input" placeholder="Title">
+        <input id="amount" class="input" placeholder="Amount" type="number">
+        <select id="category" class="input">
+          <option value="Food">🍕 Food</option>
+          <option value="Transport">🚌 Transport</option>
+          <option value="Bills">💡 Bills</option>
+          <option value="Shopping">🛍️ Shopping</option>
+          <option value="Other">🔖 Other</option>
+        </select>
+        <input id="date" class="input" type="date">
+      </div>
+
+      <!-- Receipt upload (mock OCR) -->
+      <div style="margin-top:12px">
+        <label style="display:flex;gap:8px;align-items:center">
+          <input id="receiptInput" type="file" accept="image/*" style="display:inline-block">
+          <small class="muted">Upload receipt image (mock OCR)</small>
+        </label>
+        <div id="ocrResult" style="margin-top:10px;display:none;padding:10px;border-radius:8px;background:rgba(11,111,168,0.04)"></div>
+      </div>
+
+      <div class="form-actions">
+        <button id="addBtn" class="btn">Add expense</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Expenses</h3>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-bottom:8px">
+        <button id="exportCsvBtn" class="btn-ghost">Export CSV</button>
+        <button id="exportPdfBtn" class="btn-ghost">Export PDF</button>
+      </div>
+      <table class="table" id="expensesTable">
+        <thead><tr><th>Title</th><th>Category</th><th>Amount</th><th>Date</th><th></th></tr></thead>
+        <tbody id="expensesBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Built with 💚 using HTML, CSS & JavaScript.</div>
+  </footer>
+
+  <script src="theme.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

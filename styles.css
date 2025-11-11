@@ -1,0 +1,119 @@
+:root{
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --blue:#0b6fa8;
+  --green:#16a34a;
+  --muted:#65748b;
+  --text:#072033;
+  --nav:#0b3b57;
+  --shadow: 0 8px 24px rgba(11,111,168,0.08);
+}
+
+/* Dark theme overrides when .dark is set on <html> */
+html.dark{
+  --bg: #071226;
+  --card: #0f1724;
+  --blue: #4fb0e6;
+  --green: #34d399;
+  --muted: #94a3b8;
+  --text: #e6eef8;
+  --nav: #e6f6ff;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  color-scheme: dark;
+}
+
+/* Ensure body and key elements use the variables for readable contrast */
+body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--text)}
+.navlinks a{margin-left:18px;color:var(--nav);text-decoration:none;padding:8px;border-radius:8px}
+.navlinks a:hover{background:rgba(11,111,168,0.06);color:var(--blue)}
+.hero h1{color:var(--blue)}
+.card{background:var(--card);color:var(--text)}
+.muted{color:var(--muted)}
+.footer{color:var(--muted)}
+
+/* Theme transition helper (added/removed by JS briefly to animate) */
+.theme-transition *{
+  transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease, border-color 300ms ease, transform 200ms ease;
+}
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#072033}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+header.navbar{background:transparent;padding:12px 0}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:700;color:var(--blue);font-size:1.2rem;text-decoration:none}
+.navlinks a{margin-left:18px;color:var(--nav);text-decoration:none;padding:8px;border-radius:8px}
+.navlinks a:hover{background:rgba(11,111,168,0.06);color:var(--blue)}
+
+.hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:48px 0}
+.hero-card{background:var(--card);padding:28px;border-radius:16px;box-shadow:var(--shadow);flex:1}
+.hero h1{margin:0 0 12px;font-size:2rem;color:var(--blue)}
+.hero p{color:var(--muted);margin:0 0 18px}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--blue),#0ea5a4);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+
+.card{background:var(--card);color:var(--text);padding:18px;border-radius:12px;box-shadow:var(--shadow);margin-bottom:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.stat-title{font-size:0.9rem;color:var(--muted)}
+.stat-value{font-size:1.4rem;font-weight:700;color:#052033}
+
+.form-row{display:flex;gap:10px;flex-wrap:wrap}
+/* Improved inputs & selects with custom arrow and better open-list colors */
+.input, select{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #e6eef6;
+  background:linear-gradient(180deg,#ffffff,#f6fbff);
+  -webkit-appearance:none;-moz-appearance:none;appearance:none;
+  padding-right:40px; /* space for custom arrow */
+  color:var(--text);
+  transition:box-shadow .18s ease, border-color .18s ease, background-color .18s ease;
+}
+/* custom chevron using inline SVG so it adapts to theme */
+select{
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'><path fill='%23072333' d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right 12px center;
+  background-size:14px 14px;
+}
+.input:focus, select:focus{
+  outline:none;
+  border-color: rgba(11,111,168,0.5);
+  box-shadow: 0 8px 24px rgba(11,111,168,0.12);
+}
+/* Make option list colors clearer (note: option styling limited by browsers but this helps in many modern browsers) */
+select option{
+  background: var(--card);
+  color: var(--text);
+  padding:6px 10px;
+}
+select optgroup{ color: var(--muted); }
+/* Highlight hovered option when the list is open (supported in many browsers) */
+select:focus option:hover{ background: rgba(11,111,168,0.06); }
+
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:10px;border-bottom:1px solid #f1f6fb;text-align:left}
+.table th{color:var(--muted);font-size:0.9rem}
+.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(16,185,129,0.12);color:var(--green);font-weight:600}
+
+.footer{padding:24px 0;text-align:center;color:var(--muted)}
+
+/* responsiveness */
+@media(max-width:900px){.grid-3{grid-template-columns:1fr}.hero{flex-direction:column}.hero-right{width:100%}}
+
+/* small animations */
+.card, .hero-card{transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,111,168,0.06)}
+
+.alert{padding:12px;border-radius:8px;background:rgba(255,88,88,0.08);color:#b91c1c;margin-bottom:14px}
+
+/* Dark-mode element overrides to ensure good contrast */
+html.dark .stat-value{ color: var(--text); }
+html.dark .table th, html.dark .table td{ border-bottom-color: rgba(255,255,255,0.04); color: var(--muted); }
+html.dark .table th{ color: var(--muted); }
+html.dark .input, html.dark select{ border-color: rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: var(--text); }
+html.dark .hero-card{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+html.dark .card{ box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+html.dark .btn{ color:#fff }
+html.dark .navlinks a{ color:var(--nav) }
+html.dark .navlinks a:hover{ background: rgba(79,176,230,0.06); color:var(--blue) }
+html.dark .alert{ background: rgba(255,88,88,0.12); color: #ffd6d6 }

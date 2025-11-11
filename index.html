@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ExpenseAI – Smart Expense & Budget Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Splash overlay: appears while the site loads -->
+  <div id="splash" class="splash-overlay" aria-hidden="true">
+    <div class="splash-card">
+      <div class="splash-logo">AI</div>
+      <div class="splash-sub">ExpenseAI</div>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="brand" href="index.html">ExpenseAI</a>
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="reports.html">Reports</a>
+        <a href="about.html">About</a>
+        <button id="themeToggle" aria-label="Toggle theme" style="margin-left:12px;">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <h1>Track Smart. Spend Smart.</h1>
+        <p>Manage your expenses easily with smart insights.</p>
+        <a class="btn" href="dashboard.html">Go to Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- New: Feature highlights -->
+  <section class="container" style="padding:36px 20px">
+    <div class="card">
+      <h2 style="margin-top:0;color:var(--blue)">What ExpenseAI does</h2>
+      <div class="grid-3">
+        <div class="card" style="text-align:center;padding:18px">
+          <h3>Smart OCR receipts</h3>
+          <p class="muted">Snap or upload receipts and ExpenseAI extracts amounts and merchant details automatically (mock OCR available).</p>
+        </div>
+        <div class="card" style="text-align:center;padding:18px">
+          <h3>AI category & tips</h3>
+          <p class="muted">AI suggests categories and gives simple saving tips such as reducing food or transport spend.</p>
+        </div>
+        <div class="card" style="text-align:center;padding:18px">
+          <h3>Reports & budgets</h3>
+          <p class="muted">Visual charts show monthly spend and category breakdowns. Set a budget and get alerts when you near limits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New: How it works -->
+  <section class="container" style="padding:24px 20px">
+    <div class="card">
+      <h2 style="margin-top:0;color:var(--blue)">How it works</h2>
+      <ol style="color:var(--muted)">
+        <li>Add expenses manually or upload a receipt.</li>
+        <li>ExpenseAI automatically categorizes and stores entries in your browser.</li>
+        <li>View charts and monthly reports to spot saving opportunities.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- New: Testimonials / Social proof -->
+  <section class="container" style="padding:24px 20px">
+    <div class="card">
+      <h2 style="margin-top:0;color:var(--blue)">People love ExpenseAI</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <blockquote style="flex:1;padding:12px;border-left:4px solid var(--green);margin:0;background:linear-gradient(180deg,rgba(16,185,129,0.02),transparent)">"I saved more than I expected — the budget alerts kept me on track."<br><small class="muted">— Priya</small></blockquote>
+        <blockquote style="flex:1;padding:12px;border-left:4px solid var(--blue);margin:0;background:linear-gradient(180deg,rgba(11,111,168,0.02),transparent)">"Easy to use and great reports — perfect for students."<br><small class="muted">— Ahmed</small></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- New: CTA -->
+  <section class="container" style="padding:36px 20px;text-align:center">
+    <div class="card">
+      <h2 style="margin:0 0 8px;color:var(--blue)">Ready to get started?</h2>
+      <p class="muted">Try ExpenseAI now — set a monthly budget and start tracking in seconds.</p>
+      <a class="btn" href="dashboard.html" style="margin-top:12px;display:inline-block">Go to Dashboard</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">Built with 💚 using HTML, CSS & JavaScript.</div>
+  </footer>
+
+  <!-- fade splash on load -->
+  <script>
+    window.addEventListener('load', () => {
+      const s = document.getElementById('splash');
+      if(!s) return;
+      s.classList.add('hidden');
+      // remove from DOM after transition to avoid tab stops
+      setTimeout(()=> { try{ s.remove() }catch(e){} }, 700);
+    });
+  </script>
+
+  <script src="theme.js"></script>
+</body>
+</html>
